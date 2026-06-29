@@ -7,27 +7,34 @@ const tabList = ["Experiences"];
 const AllPortfolioContent = [
   {
     img: "1",
-    title: "Full Stack Developer",
-    alterText: "Adventiscgs",
+    title: "Software Ingeer",
+    alterText: "avxs",
     portfolioLink:
       "https://www.adventiscg.com/adventis-newsletter",
   },
   {
     img: "2",
     title: "Full Stack Developer",
+    alterText: "Adventiscgs",
+    portfolioLink:
+      "https://www.adventiscg.com/adventis-newsletter",
+  },
+  {
+    img: "3",
+    title: "Full Stack Developer",
     alterText: "DANE",
     portfolioLink:
       "http://gdpdane.iyata.net/login",
   },
   {
-    img: "3",
+    img: "4",
     title: "Senior Developer",
     alterText: "software Developer",
     portfolioLink:
       "https://www.doctoraki.com/",
   },
   {
-    img: "4",
+    img: "5",
     title: "Lead Team ",
     subTitle: "",
     alterText: "Elearning App",
@@ -35,7 +42,7 @@ const AllPortfolioContent = [
       "https://www.ciencuadras.com/",
   },
   {
-    img: "5",
+    img: "6",
     title: "Infraestructura AWS",
     alterText: "sucursal refinancia",
     portfolioLink:
@@ -43,7 +50,7 @@ const AllPortfolioContent = [
   },
 
   {
-    img: "6",
+    img: "7",
     title: "Senior Developer",
     alterText: "ipm",
     portfolioLink:
@@ -51,14 +58,14 @@ const AllPortfolioContent = [
   },
   
   {
-    img: "7",
+    img: "8",
     title: "Full Stack Developer",
     alterText: "",
     portfolioLink:
       "https://comfy.com.co",
   },
   {
-    img: "8",
+    img: "9",
     title: "Senior Developer",
     alterText: "",
     portfolioLink:

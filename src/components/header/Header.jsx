@@ -32,7 +32,7 @@ const Header = () => {
                 src="img/logo/estudio91.png"
                 alt="brand logo"
               /> */}
-              <h1 className="navbar-brand">@Criscros</h1>
+              <h1 className="navbar-brand">@CodeJar</h1>
               
             </NavLink>
             {/* / */}

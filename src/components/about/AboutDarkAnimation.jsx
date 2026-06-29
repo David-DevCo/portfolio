@@ -33,7 +33,7 @@ const About = () => {
           data-aos-dealay="100"
         >
           <div className="typo-box about-me">
-            <h3>@criscros</h3>
+            <h3>@CODEjAR</h3>
             <h5>
               <span className="color-theme">Senior Developer</span> 
      
