@@ -1,5 +1,40 @@
-
 import React from "react";
+
+// Clean, maintainable data structures
+const educationData = [
+  {
+    year: "2018",
+    title: "Tecnólogo Formulación de proyectos",
+    institution: "SENA",
+  },
+  {
+    year: "2015",
+    title: "Técnico en Programación de Software",
+    institution: "SENA | Bogotá",
+  },
+];
+
+const experienceData = [
+  { year: "2024-2025", company: "Karrot", role: "Software Engineer" },
+  { year: "2023", company: "Joonik / Adventis.com", role: "Full Stack Developer" },
+  { year: "2023", company: "Teleperformance / Claro - Despegar", role: "Full Stack Developer" },
+  { year: "2020-2022", company: "Insoftar / Ciencuadras.com", role: "Full Stack Developer" },
+  { year: "2019-2020", company: "Nivelics / Seguros Bolívar", role: "Arquitecto de Infraestructura Jr" },
+  { year: "2017-11/2018", company: "Interfire SAS", role: "Coordinador de Desarrollo" },
+  { year: "2015-2021", company: "Creamos SAS", role: "Coordinador de Desarrollo" },
+];
+
+const skillsData = [
+  { name: "JAVASCRIPT", level: "95%" },
+  { name: "AWS (CDK, Lambda, SQS)", level: "90%" },
+  { name: "NODE.JS & EXPRESS", level: "88%" },
+  { name: "PHP (Laravel / Symfony)", level: "85%" },
+  { name: "React & Electron", level: "85%" },
+  { name: "Vue.js & Angular", level: "80%" },
+  { name: "DevOps (Terraform / Docker / CI/CD)", level: "75%" },
+  { name: "LINUX", level: "75%" },
+  { name: "PYTHON", level: "60%" },
+];
 
 const Skills = () => {
   return (
@@ -16,19 +51,15 @@ const Skills = () => {
           </div>
 
           <ul className="aducation-box theme-bg">
-            <li>
-              <span className="dark-bg">2015</span>
-              <h6>Técnico en Programación de Software</h6>
-              <p>SENA | Bogotá</p>
-              <li>
-              <span className="dark-bg">2018</span>
-              <h6>Tecnólogo Formulación de proyectos</h6>
-              <p>SENA</p>
-            </li>            </li>
+            {educationData.map((edu, index) => (
+              <li key={index}>
+                <span className="dark-bg">{edu.year}</span>
+                <h6>{edu.title}</h6>
+                <p>{edu.institution}</p>
+              </li>
+            ))}
           </ul>
-          {/* End .aducation-box */}
         </div>
-        {/* End .col */}
 
         {/* Column 2: Experience */}
         <div
@@ -41,53 +72,15 @@ const Skills = () => {
             <h4 className="font-alt">Experience</h4>
           </div>
           <ul className="aducation-box dark-bg">
-            <li>
-              <span className="theme-bg">2024-2025</span>
-              <h6>Karrot</h6>
-              <p>Software Engineer</p>
-            </li>
-
-            <li>
-              <span className="theme-bg">2023</span>
-              <h6>Joonik / Adventis.com</h6>
-              <p>Full Stack Developer</p>
-            </li>
-
-            <li>
-              <span className="theme-bg">2023</span>
-              <h6>Teleperformance / Claro - Despegar</h6>
-              <p>Full Stack Developer</p>
-            </li>
-
-            <li>
-              <span className="theme-bg">2020-2022</span>
-              <h6>Insoftar / Ciencuadras.com</h6>
-              <p>Full Stack Developer</p>
-            </li>
-
- 
-
-            <li>
-              <span className="theme-bg">2019-2020</span>
-              <h6>Nivelics / Seguros Bolívar</h6>
-              <p>Arquitecto de Infraestructura Jr</p>
-            </li>
-
-            <li>
-              <span className="theme-bg">2017-11/2018</span>
-              <h6>Interfire SAS</h6>
-              <p>Coordinador de Desarrollo</p>
-            </li>
-
-            <li>
-              <span className="theme-bg">2015-2021</span>
-              <h6>Creamos SAS</h6>
-              <p>Coordinador de Desarrollo</p>
-            </li>
+            {experienceData.map((exp, index) => (
+              <li key={index}>
+                <span className="theme-bg">{exp.year}</span>
+                <h6>{exp.company}</h6>
+                <p>{exp.role}</p>
+              </li>
+            ))}
           </ul>
-          {/* End .aducation-box */}
         </div>
-        {/* End .col */}
 
         {/* Column 3: Skills */}
         <div
@@ -100,91 +93,21 @@ const Skills = () => {
             <h4 className="font-alt">My Skills</h4>
           </div>
           <div className="gray-bg skill-box">
-
-            <div className="skill-lt">
-              <h6>JAVASCRIPT</h6>
-              <div className="skill-bar">
-                <div className="skill-bar-in theme-bg" style={{ width: "95%" }}>
-                  <span>95%</span>
+            {skillsData.map((skill, index) => (
+              <div className="skill-lt" key={index}>
+                <h6>{skill.name}</h6>
+                <div className="skill-bar">
+                  <div 
+                    className="skill-bar-in theme-bg" 
+                    style={{ width: skill.level }}
+                  >
+                    <span>{skill.level}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div className="skill-lt">
-              <h6>AWS (CDK, Lambda, SQS)</h6>
-              <div className="skill-bar">
-                <div className="skill-bar-in theme-bg" style={{ width: "90%" }}>
-                  <span>90%</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="skill-lt">
-              <h6>NODE.JS & EXPRESS</h6>
-              <div className="skill-bar">
-                <div className="skill-bar-in theme-bg" style={{ width: "88%" }}>
-                  <span>88%</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="skill-lt">
-              <h6>PHP (Laravel / Symfony)</h6>
-              <div className="skill-bar">
-                <div className="skill-bar-in theme-bg" style={{ width: "85%" }}>
-                  <span>85%</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="skill-lt">
-              <h6>React & Electron</h6>
-              <div className="skill-bar">
-                <div className="skill-bar-in theme-bg" style={{ width: "85%" }}>
-                  <span>85%</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="skill-lt">
-              <h6>Vue.js & Angular</h6>
-              <div className="skill-bar">
-                <div className="skill-bar-in theme-bg" style={{ width: "80%" }}>
-                  <span>80%</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="skill-lt">
-              <h6>DevOps (Terraform / Docker / CI/CD)</h6>
-              <div className="skill-bar">
-                <div className="skill-bar-in theme-bg" style={{ width: "75%" }}>
-                  <span>75%</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="skill-lt">
-              <h6>LINUX</h6>
-              <div className="skill-bar">
-                <div className="skill-bar-in theme-bg" style={{ width: "75%" }}>
-                  <span>75%</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="skill-lt">
-              <h6>PYTHON</h6>
-              <div className="skill-bar">
-                <div className="skill-bar-in theme-bg" style={{ width: "60%" }}>
-                  <span>60%</span>
-                </div>
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
-        {/* End .col */}
       </div>
     </>
   );

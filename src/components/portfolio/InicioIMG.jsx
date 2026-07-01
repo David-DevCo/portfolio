@@ -7,7 +7,7 @@ const tabList = ["Experiences"];
 const AllPortfolioContent = [
   {
     img: "1",
-    title: "Software Ingeer",
+    title: "Software Ingeener",
     alterText: "avxs",
     portfolioLink:
       "https://www.adventiscg.com/adventis-newsletter",
