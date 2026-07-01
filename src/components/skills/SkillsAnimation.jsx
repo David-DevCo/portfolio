@@ -15,7 +15,7 @@ const educationData = [
 ];
 
 const experienceData = [
-  { year: "2024-2025", company: "Karrot", role: "Software Engineer" },
+  { year: "2024-2026", company: "Karrot", role: "Software Engineer" },
   { year: "2023", company: "Joonik / Adventis.com", role: "Full Stack Developer" },
   { year: "2023", company: "Teleperformance / Claro - Despegar", role: "Full Stack Developer" },
   { year: "2020-2022", company: "Insoftar / Ciencuadras.com", role: "Full Stack Developer" },
