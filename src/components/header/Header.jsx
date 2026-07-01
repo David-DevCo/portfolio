@@ -101,7 +101,7 @@ const Header = () => {
                   </a>
                 </li>
                 <li>
-                  <a className="nav-link" href="https://github.com/Criscros" onClick={handleClick}>
+                  <a className="nav-link" href="https://github.com/David-DevCo" onClick={handleClick}>
                     <span>Github</span>
                   </a>
                 </li>
