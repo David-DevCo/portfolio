@@ -22,7 +22,9 @@ const About = () => {
           data-aos-duration="1200"
         >
           <div className="img-box dark-img-box">
-            <img src="img/about/me3.jpeg" alt="smiling a girl" />
+            {/* <img src="img/about/me3.jpeg" alt="smiling a girl" /> */}
+             <img src="img/about/me_2026.jpeg" alt="smiling a girl" />
+        
           </div>
         </div>
 
