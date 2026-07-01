@@ -102,7 +102,7 @@ const Header = () => {
                 </li>
                 <li>
                   <a className="nav-link" href="https://github.com/David-DevCo" onClick={handleClick}>
-                    <span>Github</span>
+                    <span>Github DAVID* </span>
                   </a>
                 </li>
               </Scrollspy>

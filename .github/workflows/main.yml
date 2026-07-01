@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,28 +19,25 @@ jobs:
           node-version: '17'
 
       - name: Install dependencies
-        run: npm install --force
+        run: npm ci --force
 
       - name: Build
         run: npm run build
 
-      - name: List Files
-        run: ls && cd build && ls 
-      
-      - name: Configure AWS CLI Credentials
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+
+      - name: Deploy to S3
         run: |
-          mkdir -p ~/.aws
-          # Set the region in the config file
-          echo "[default]" > ~/.aws/config
-          echo "region = us-east-2" >> ~/.aws/config
-          
-          # Set the active keys in the credentials file
-          echo "[default]" > ~/.aws/credentials
-          echo "aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}" >> ~/.aws/credentials
-          echo "aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> ~/.aws/credentials
-      
-      - name: aws s3 delete bucket archives
-        run: aws s3 rm s3://codejar.me --recursive
-      
-      - name: aws s3 upload archives
-        run: aws s3 cp ./build s3://codejar.me --recursive
+          aws s3 rm s3://codejar.me --recursive
+          aws s3 sync ./build s3://codejar.me --acl public-read
+
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
