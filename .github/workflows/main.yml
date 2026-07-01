@@ -27,7 +27,7 @@ jobs:
         run: npm run build
 
       - name: List Files
-        run: ls && cd dist && ls 
+        run: ls && cd build && ls 
       
       - name: Configure AWS CLI
         run: |
