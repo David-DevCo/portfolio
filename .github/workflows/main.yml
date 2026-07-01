@@ -33,8 +33,10 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 rm s3://codejar.me --recursive
-          aws s3 sync ./build s3://codejar.me --acl public-read
+          aws s3 rm s3://codejar.me --recursive --delete
+          aws s3 sync ./build s3://codejar.me \
+            --delete \
+            --cache-control "no-cache"
 
       - name: Invalidate CloudFront Cache
         run: |
