@@ -1,118 +1,91 @@
 import React from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import SimpleReactLightbox from "simple-react-lightbox";
-import { SRLWrapper } from "simple-react-lightbox";
+import { Link } from "react-router-dom";
 
-const tabList = ["ENFOQUES",];
-const AllPortfolioContent = [
+const cursosData = [
   {
-    img: "1",
+    id: 1,
     title: "BACK-END",
-    alterText: "Motion Graphy",
-    portfolioLink:
-      "/back-end",
+    description: "Node.js, Express, APIs REST y bases de datos",
+    image: "img/cursos/1.jpg",
+    link: "/back-end",
+    technologies: ["Node.js", "Express", "MongoDB"],
   },
   {
-    img: "2",
+    id: 2,
     title: "FRONT-END",
-    alterText: "Elearning App",
-    portfolioLink:
-      "/front-end",
+    description: "JavaScript, React, HTML5 y CSS3 moderno",
+    image: "img/cursos/2.jpg",
+    link: "/front-end",
+    technologies: ["JavaScript", "React", "CSS3"],
   },
   {
-    img: "3",
+    id: 3,
     title: "BASES DE DATOS",
-    alterText: "Business Mockup",
-    portfolioLink:
-      "/bases-de-datos",
+    description: "SQL, MySQL, PostgreSQL y MongoDB",
+    image: "img/cursos/3.jpg",
+    link: "/bases-de-datos",
+    technologies: ["SQL", "MySQL", "PostgreSQL"],
   },
   {
-    img: "4",
-    title: "APPS",
-    alterText: "E-Cosmetics",
-    portfolioLink:
-      "/apps",
+    id: 4,
+    title: "APPS MOVILES",
+    description: "React Native y desarrollo movil multiplataforma",
+    image: "img/cursos/4.jpg",
+    link: "/apps",
+    technologies: ["React Native", "Expo", "Firebase"],
   },
   {
-    img: "5",
+    id: 5,
     title: "ARQUITECTURA DE SOFTWARE",
-    alterText: "Bottle Illustration",
-    portfolioLink:
-      "/arquitectura-de-software",
+    description: "Patrones de diseno, microservicios y escalabilidad",
+    image: "img/cursos/5.jpg",
+    link: "/arquitectura-de-software",
+    technologies: ["Docker", "AWS", "Microservicios"],
   },
   {
-    img: "6",
-    title: "¿COMO CREAR UN PROYECTO WEB?",
-    alterText: "Web Application",
-    portfolioLink:
-      "/como-crear-proyecto-web",
+    id: 6,
+    title: "PROYECTO WEB",
+    description: "Como crear un proyecto web completo de cero",
+    image: "img/cursos/6.jpg",
+    link: "/como-crear-proyecto-web",
+    technologies: ["Full Stack", "Deploy", "CI/CD"],
   },
 ];
 
 const Portfolio = () => {
   return (
-    <SimpleReactLightbox>
-      <div className="positon-relative">
-        <div className="portfolio-filter-01">
-          <Tabs>
-            <TabList className="filter d-flex justify-content-center">
-              {tabList.map((val, i) => (
-                <Tab key={i}>{val}</Tab>
+    <div className="cursos-grid">
+      {cursosData.map((curso, index) => (
+        <Link
+          to={curso.link}
+          className="curso-card"
+          key={curso.id}
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay={index * 100}
+        >
+          <div className="curso-image-wrapper">
+            <img src={curso.image} alt={curso.title} className="curso-image" />
+            <div className="curso-image-overlay"></div>
+          </div>
+          <div className="curso-content">
+            <h3 className="curso-title">{curso.title}</h3>
+            <p className="curso-description">{curso.description}</p>
+            <div className="curso-technologies">
+              {curso.technologies.map((tech, i) => (
+                <span key={i} className="tech-tag">
+                  {tech}
+                </span>
               ))}
-            </TabList>
-            {/* End tablist */}
-
-            <SRLWrapper>
-            <TabPanel>
-                <div className="portfolio-content row lightbox-gallery">
-                  {AllPortfolioContent.map((val, i) => (
-                    <div
-                      className="col-sm-6 col-lg-4 grid-item product"
-                      key={i}
-                      data-aos="fade-right"
-                      data-aos-duration="1200"
-                      data-aos-delay={val.delayAnimation}
-                    >
-                      <div className="portfolio-box-01">
-                        <div className="portfolio-img">
-                          <div className="portfolio-info">
-                            <h5>
-                              <a href={val.portfolioLink}>
-                                {val.title}
-                              </a>
-                            </h5>
-                            <span>{val.subTitle}</span>
-                          </div>
-                          {/* End .portfolio-info */}
-                      
-                            <img
-                              src={`img/cursos/${val.img}.jpg`}
-                              alt={val.alterText}
-                            />
-                        
-                          {/* End gallery link */}
-                          <a
-                            href={val.portfolioLink}
-                            className="portfolio-icon"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <span className="ti-link"></span>
-                          </a>
-                          {/* End .portfolio-icon */}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                {/* End list wrapper */}
-              </TabPanel>
-            </SRLWrapper>
-            {/* End tabpanel */}
-          </Tabs>
-        </div>
-      </div>
-    </SimpleReactLightbox>
+            </div>
+            <div className="curso-cta">
+              <span>Ver curso</span>
+              <i className="fa fa-arrow-right"></i>
+            </div>
+          </div>
+        </Link>
+      ))}
+    </div>
   );
 };
 

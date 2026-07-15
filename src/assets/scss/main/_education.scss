@@ -908,6 +908,174 @@
   }
 }
 
+// --- CURSOS SECTION ---
+
+.cursos-section {
+  padding: 80px 0;
+  background-color: $bg-main;
+}
+
+.cursos-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px;
+
+  .about-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background-color: $brand-green-bg;
+    color: $brand-green;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background-color: $brand-green;
+      border-radius: 50%;
+      box-shadow: 0 0 8px $brand-green;
+      animation: pulse 2s infinite;
+    }
+  }
+
+  .cursos-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: $text-primary;
+    margin: 0 0 15px 0;
+    letter-spacing: -0.5px;
+
+    .gradient-text {
+      background: linear-gradient(135deg, $brand-green 0%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  .cursos-subtitle {
+    font-size: 1.05rem;
+    color: $text-secondary;
+    margin: 0;
+    line-height: 1.6;
+  }
+}
+
+.cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.curso-card {
+  display: block;
+  background-color: $bg-card;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    border-color: rgba(16, 185, 129, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+    .curso-image {
+      transform: scale(1.08);
+    }
+
+    .curso-cta {
+      color: $brand-green;
+
+      i {
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+.curso-image-wrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.curso-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.curso-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(9, 13, 22, 0.8) 100%);
+  pointer-events: none;
+}
+
+.curso-content {
+  padding: 28px;
+}
+
+.curso-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin: 0 0 10px 0;
+}
+
+.curso-description {
+  font-size: 0.95rem;
+  color: $text-secondary;
+  margin: 0 0 18px 0;
+  line-height: 1.5;
+}
+
+.curso-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tech-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: $brand-green;
+  background-color: $brand-green-bg;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(16, 185, 129, 0.15);
+}
+
+.curso-cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $text-secondary;
+  transition: all 0.3s ease;
+
+  i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+  }
+}
+
 // --- FOOTER DARK MODE ---
 
 .footer-dark {

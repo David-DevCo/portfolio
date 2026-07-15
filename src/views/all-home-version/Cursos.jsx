@@ -1,17 +1,18 @@
 import React from "react";
-import Footer from "../../components/footer/FooterAnimation";
-import Portfolio from "../../components/portfolio/cursosIMG";
-import useDocumentTitle from "../../components/useDocumentTitle";
-import { FloatingWhatsApp } from 'react-floating-whatsapp-button'
 import Header from "../../components/header/Header";
-import { Link } from 'react-router-dom';
+import Portfolio from "../../components/portfolio/cursosIMG";
+import Footer from "../../components/footer/FooterAnimation";
+import useDocumentTitle from "../../components/useDocumentTitle";
+import { FloatingWhatsApp } from "react-floating-whatsapp-button";
+import "react-floating-whatsapp-button/dist/index.css";
+import { Link } from "react-router-dom";
 
 const Cursos = () => {
-  useDocumentTitle("David Ramirez");
+  useDocumentTitle("Cursos - David Ramirez");
   return (
     <div className="home-dark">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="hero-section-custom">
         <div className="container">
@@ -26,7 +27,9 @@ const Cursos = () => {
             <span className="text-gradient-green">aprender haciendo.</span>
           </h1>
           <p className="hero-desc" data-aos="fade-up" data-aos-delay="200">
-            En nuestros cursos no solo aprendes conceptos, los aplicas. Construye proyectos reales, resuelve problemas y domina las tecnologias que usa la industria.
+            En nuestros cursos no solo aprendes conceptos, los aplicas.
+            Construye proyectos reales, resuelve problemas y domina las
+            tecnologias que usa la industria.
           </p>
           <div className="hero-actions" data-aos="fade-up" data-aos-delay="300">
             <Link to="/front-end" className="btn-primary-green">
@@ -38,40 +41,38 @@ const Cursos = () => {
           </div>
         </div>
       </section>
-      {/* End Hero Section */}
 
-      {/* Portfolio */}
-      <section id="work" className="section gray-bg">
+      {/* Cursos Grid */}
+      <section className="cursos-section">
         <div className="container">
-          <div className="row justify-content-center section-title text-center">
-            <div className="col-lg-7">
-              <h3 className="font-alt">NUESTROS CURSOS</h3>
-              <p>
-                Liberate de conocimiento con tus desempenos en nuestra Academia
-                de Estudios con cursos creados para otorgarle la
-                forma a tus proyectos y alcanzar tus metas.
-              </p>
-            </div>
+          <div className="cursos-header" data-aos="fade-up">
+            <span className="about-badge">
+              <span className="badge-dot"></span>
+              Nuestros Cursos
+            </span>
+            <h2 className="cursos-title">
+              Domina las <span className="gradient-text">tecnologias</span> del
+              mercado
+            </h2>
+            <p className="cursos-subtitle">
+              Cursos presenciales disenados para developers que quieren ir al
+              siguiente nivel. Aprende con proyectos reales.
+            </p>
           </div>
-          {/* End .row */}
           <Portfolio />
         </div>
       </section>
-      {/* End Portfolio */}
 
+      {/* Floating WhatsApp */}
       <FloatingWhatsApp
         zIndex="1"
-        phone='+573232805247'
-        popupMessage="Hola, quiero informacion sobre los cursos"
-        accountName="DAVID"
+        phone="+573232805247"
+        popupMessage="Hola! Quiero informacion sobre los cursos"
+        accountName="David Ramirez"
       />
 
-      <footer className="footer white">
-        <div className="container">
-          <Footer />
-        </div>
-      </footer>
-      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
