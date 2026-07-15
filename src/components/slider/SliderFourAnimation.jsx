@@ -1,55 +1,49 @@
 import React from "react";
 import { VideoTag } from "react-video-tag";
-import TextLoop from "react-text-loop";
-
+import { Link } from 'react-router-dom';
 
 const Slider = () => {
   return (
-    <>
-      {/*  Home Banner */}
-      <section
-        id="home"
-        className="home-banner slider-five-video inner-content-static overlay overlay-75 video-banner"
-        style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL + "img/banner/bg-2.jpg"
-            })`,
-        }}
-      >
+    <section
+      id="home"
+      className="hero-video-section"
+      style={{
+        backgroundImage: `url(${process.env.PUBLIC_URL + "img/banner/bg-2.jpg"})`,
+      }}
+    >
+      <div className="video-background">
+        <VideoTag
+          autoPlay={`${true}`}
+          muted={`${true}`}
+          playsInline={`${true}`}
+          loop={`${true}`}
+          src={`${"videos/dynamo.mp4"}`}
+          poster={`${"img/bg-2.jpg"}`}
+        />
+      </div>
 
-        <div className="video-background">
-          <VideoTag
-            autoPlay={`${true}`}
-            muted={`${true}`}
-            playsInline={`${true}`}
-            loop={`${true}`}
-            src={`${"videos/dynamo.mp4"}`}
-            poster={`${"img/bg-2.jpg"}`}
-          />
+      <div className="hero-video-content" data-aos="fade-up">
+        <span className="badge-tech">
+          <span className="dot-pulse"></span>
+          Learning by Doing
+        </span>
+        
+        <h1>
+          I'm <span className="name-highlight">David</span>
+        </h1>
+        
+        <h2>Construyo software. Enseño a crearlo.</h2>
+        
+        <p>
+          Menos diapositivas, mas terminal. Cursos presenciales de <strong>Linux</strong>, <strong>Servidores</strong>, <strong>Cloud</strong> y desarrollo moderno.
+        </p>
+
+        <div className="hero-actions-video">
+          <Link to="/cursos" className="btn-primary-green">Ver Temario</Link>
+          <Link to="/planes" className="btn-secondary-green-transparent">Ver Planes</Link>
         </div>
-        <div className="container">
-          <div className="row align-items-center full-screen">
-            <div className="col-lg-12">
-              <div className="hb-typo text-center">
-                <h1 className="font-alt">
-                  I'm <span>David </span>
-                </h1>
-                <h2 className="mb-4">
-                  <TextLoop>
-                    <span className="loop-text">Aws Developer</span>
-                    <span className="loop-text">Full Stack  Developer</span>
-                    <span className="loop-text"> App Developer</span>
-                  </TextLoop>{" "}
-
-                </h2>
-                {/* End social slide  */}
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </section>
-      {/* End Home Banner  */}
-    </>
+      </div>
+    </section>
   );
 };
 

@@ -4,14 +4,21 @@ html {
 }
 
 body {
-  color: $px-body;
-  font-family: $px-font;
+  background-color: $bg-main;
+  color: $text-primary;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: $px-line-height;
   font-size: $px-font-size;
   font-weight: 400;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: rgba(16, 185, 129, 0.25);
+  color: $brand-green-hover;
 }
 
 .font-alt {

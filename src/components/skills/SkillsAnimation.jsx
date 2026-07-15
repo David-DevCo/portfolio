@@ -1,16 +1,15 @@
 import React from "react";
 
-// Clean, maintainable data structures
 const educationData = [
   {
     year: "2018",
-    title: "Tecnólogo Formulación de proyectos",
+    title: "Tecnologo Formulacion de proyectos",
     institution: "SENA",
   },
   {
     year: "2015",
-    title: "Técnico en Programación de Software",
-    institution: "SENA | Bogotá",
+    title: "Tecnico en Programacion de Software",
+    institution: "SENA | Bogota",
   },
 ];
 
@@ -19,97 +18,130 @@ const experienceData = [
   { year: "2023", company: "Joonik / Adventis.com", role: "Full Stack Developer" },
   { year: "2023", company: "Teleperformance / Claro - Despegar", role: "Full Stack Developer" },
   { year: "2020-2022", company: "Insoftar / Ciencuadras.com", role: "Full Stack Developer" },
-  { year: "2019-2020", company: "Nivelics / Seguros Bolívar", role: "Arquitecto de Infraestructura Jr" },
+  { year: "2019-2020", company: "Nivelics / Seguros Bolivar", role: "Arquitecto de Infraestructura Jr" },
   { year: "2017-11/2018", company: "Interfire SAS", role: "Coordinador de Desarrollo" },
   { year: "2015-2021", company: "Creamos SAS", role: "Coordinador de Desarrollo" },
 ];
 
 const skillsData = [
-  { name: "JAVASCRIPT", level: "95%" },
-  { name: "AWS (CDK, Lambda, SQS)", level: "90%" },
-  { name: "NODE.JS & EXPRESS", level: "88%" },
-  { name: "PHP (Laravel / Symfony)", level: "85%" },
-  { name: "React & Electron", level: "85%" },
-  { name: "Vue.js & Angular", level: "80%" },
-  { name: "DevOps (Terraform / Docker / CI/CD)", level: "75%" },
-  { name: "LINUX", level: "75%" },
-  { name: "PYTHON", level: "60%" },
+  { name: "JavaScript", level: 95 },
+  { name: "AWS (Cloud)", level: 90 },
+  { name: "Node.js & Express", level: 88 },
+  { name: "React & Electron", level: 85 },
+  { name: "PHP (Laravel)", level: 85 },
+  { name: "Linux", level: 75 },
+  { name: "Python", level: 60 },
 ];
+
+function CircularSkill({ name, percentage }) {
+  const radius = 35;
+  const strokeWidth = 6;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference - (percentage / 100) * circumference;
+
+  return (
+    <div className="circular-skill-card">
+      <div className="svg-container">
+        <svg className="progress-ring" width="90" height="90">
+          <circle
+            className="progress-ring__background"
+            stroke="rgba(16, 185, 129, 0.06)"
+            strokeWidth={strokeWidth}
+            fill="transparent"
+            r={radius}
+            cx="45"
+            cy="45"
+          />
+          <circle
+            className="progress-ring__circle"
+            stroke="#10b981"
+            strokeWidth={strokeWidth}
+            strokeDasharray={`${circumference} ${circumference}`}
+            strokeDashoffset={strokeDashoffset}
+            strokeLinecap="round"
+            fill="transparent"
+            r={radius}
+            cx="45"
+            cy="45"
+          />
+        </svg>
+        <span className="skill-percentage">{percentage}%</span>
+      </div>
+      <h4 className="skill-name">{name}</h4>
+    </div>
+  );
+}
 
 const Skills = () => {
   return (
-    <>
-      <div className="row">
-        {/* Column 1: Education */}
+    <div className="portfolio-sections-container">
+      {/* SECCIÓN 1: Educación y Experiencia lado a lado */}
+      <section className="resume-split-section">
         <div
-          className="col-lg-4 my-3"
+          className="education-column"
           data-aos="fade-right"
           data-aos-duration="1200"
         >
-          <div className="sm-title">
-            <h4 className="font-alt">Education</h4>
+          <div className="section-title-wrapper">
+            <h3 className="section-title-horizontal">EDUCACIÓN</h3>
           </div>
-
-          <ul className="aducation-box theme-bg">
+          <ul className="timeline-list">
             {educationData.map((edu, index) => (
-              <li key={index}>
-                <span className="dark-bg">{edu.year}</span>
-                <h6>{edu.title}</h6>
-                <p>{edu.institution}</p>
+              <li key={index} className="timeline-item">
+                <span className="timeline-year">{edu.year}</span>
+                <div className="timeline-content">
+                  <h4>{edu.title}</h4>
+                  <p>{edu.institution}</p>
+                </div>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Column 2: Experience */}
         <div
-          className="col-lg-4 my-3"
-          data-aos="fade-right"
+          className="experience-column"
+          data-aos="fade-left"
           data-aos-duration="1200"
           data-aos-delay="100"
         >
-          <div className="sm-title">
-            <h4 className="font-alt">Experience</h4>
+          <div className="section-title-wrapper">
+            <h3 className="section-title-horizontal">EXPERIENCIA</h3>
           </div>
-          <ul className="aducation-box dark-bg">
+          <ul className="timeline-list">
             {experienceData.map((exp, index) => (
-              <li key={index}>
-                <span className="theme-bg">{exp.year}</span>
-                <h6>{exp.company}</h6>
-                <p>{exp.role}</p>
+              <li key={index} className="timeline-item">
+                <span className="timeline-year">{exp.year}</span>
+                <div className="timeline-content">
+                  <h4>{exp.company}</h4>
+                  <p>{exp.role}</p>
+                </div>
               </li>
             ))}
           </ul>
         </div>
+      </section>
 
-        {/* Column 3: Skills */}
-        <div
-          className="col-lg-4 ml-auto my-3"
-          data-aos="fade-right"
-          data-aos-duration="1200"
-          data-aos-delay="200"
-        >
-          <div className="sm-title">
-            <h4 className="font-alt">My Skills</h4>
-          </div>
-          <div className="gray-bg skill-box">
-            {skillsData.map((skill, index) => (
-              <div className="skill-lt" key={index}>
-                <h6>{skill.name}</h6>
-                <div className="skill-bar">
-                  <div 
-                    className="skill-bar-in theme-bg" 
-                    style={{ width: skill.level }}
-                  >
-                    <span>{skill.level}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* SECCIÓN 2: Conocimientos en formato horizontal */}
+      <section
+        className="skills-horizontal-section"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+        data-aos-delay="200"
+      >
+        <div className="section-title-wrapper">
+          <h3 className="section-title-horizontal">CONOCIMIENTOS</h3>
         </div>
-      </div>
-    </>
+        <div className="skills-horizontal-track">
+          {skillsData.map((skill, index) => (
+            <CircularSkill
+              key={index}
+              name={skill.name}
+              percentage={skill.level}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
   );
 };
 

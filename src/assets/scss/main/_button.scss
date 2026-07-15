@@ -58,3 +58,46 @@
     }
   }
 }
+
+// --- BOTONES MODO OSCURO VERDE ESMERALDA ---
+
+// Botón Principal con Efecto Glow Verde
+.btn-primary-green {
+  background-color: $brand-green;
+  color: #020617;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background-color: $brand-green-hover;
+    box-shadow: 0 0 25px $brand-green-glow;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+// Botón Secundario Elegante
+.btn-secondary-green {
+  background-color: $brand-green-bg;
+  color: $brand-green-hover;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(16, 185, 129, 0.15);
+    border-color: $brand-green;
+    color: $text-primary;
+  }
+}
